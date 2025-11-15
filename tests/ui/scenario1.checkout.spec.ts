@@ -8,7 +8,7 @@ import {
   startCheckout,
 } from "./ui.helpers";
 
-test.describe("Scenario_1 – full checkout flow", () => {
+test.describe("Scenario 1, full checkout flow", () => {
   test("Login → add all → remove 3rd in cart → checkout → confirmed", async ({page}) => {
     await test.step("Login as standard user", async () => {
       await login(page, users.standard.username, users.standard.password);
