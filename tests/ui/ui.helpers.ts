@@ -9,13 +9,10 @@ export async function login(page: Page, username: string, password: string) {
 
 export async function addAllVisibleItems(page: Page) {
   const addButtons = page.locator('[data-test^="add-to-cart-"]');
-  // ensure items are rendered and at least the first add button is visible
   await expect(addButtons.first()).toBeVisible();
   const count = await addButtons.count();
   for (let i = 0; i < count; i++) {
-    // re-query the first remaining add button each iteration to avoid stale/nth index issues
     const btn = page.locator('[data-test^="add-to-cart-"]').first();
-    // make sure the button is in view before clicking
     await btn.scrollIntoViewIfNeeded();
     await btn.click();
   }
@@ -23,7 +20,6 @@ export async function addAllVisibleItems(page: Page) {
 }
 
 export async function goToCart(page: Page) {
-  // use the shopping cart link selector which exists on the page
   const cartLink = page.locator('.shopping_cart_link');
   await expect(cartLink).toBeVisible();
   await cartLink.click();
