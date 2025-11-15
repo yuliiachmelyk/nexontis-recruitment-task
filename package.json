@@ -1,0 +1,26 @@
+{
+  "name": "nexontis-playwright-allure",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test tests/ui",
+    "test:api": "playwright test tests/api",
+    "test:headed": "playwright test --headed",
+    "report": "allure generate --clean allure-results && allure open allure-report",
+    "show-report": "allure open allure-report",
+    "allure:generate": "npx allure generate ./allure-results --clean -o ./allure-report",
+    "allure:open": "npx allure open ./allure-report",
+    "allure:serve": "npx allure generate ./allure-results --clean -o ./allure-report && npx allure open ./allure-report",
+    "pw:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^24.10.1",
+  "allure-commandline": "^2.30.0",
+  "allure-playwright": "^2.13.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
